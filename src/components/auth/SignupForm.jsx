@@ -1,24 +1,25 @@
 import React from 'react'
+import { Form, Icon, Input, Button } from 'antd';
+
+const FormItem = Form.Item;
 
 const SignupForm = ({signup, handleText}) => {
   return (
     <div>
-      SignUp
-      <form method="POST" onSubmit={signup}>
-        <p>
-          Name:
-          <input type="text" name="name" onChange={handleText} placeholder="Name..."/>
-        </p>
-        <p>
-          Email:
-          <input type="email" name="email" onChange={handleText} placeholder="Email..."/>
-        </p>
-        <p>
-          Password:
-          <input type="password" name="password" onChange={handleText} placeholder="Password..."/>
-        </p>
-        <button type="submit">Regístrate</button>
-      </form>
+      <Form layout="inline" method="POST" onSubmit={signup}>
+        <FormItem>
+          <Input name="name" onChange={handleText} prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Name" />
+        </FormItem>
+        <FormItem>
+          <Input name="email" onChange={handleText} prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Email" />
+        </FormItem>
+        <FormItem>
+          <Input name="password" onChange={handleText} prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Password" />
+        </FormItem>
+        <FormItem>
+          <Button type="primary" htmlType="submit">Sign Up</Button>
+        </FormItem>
+      </Form>
     </div>
   )
 }

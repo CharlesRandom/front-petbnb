@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import LoginForm from './LoginForm'
-import HorizontalLogin from './HorizontalLogin'
+// import HorizontalLogin from './HorizontalLogin'
+// import NormalLogin from './NormalLogin'
 import SignupForm from './SignupForm'
 import {signup, login} from '../../services/auth'
 
@@ -15,7 +16,10 @@ class AuthPage extends Component {
     signup(user)
       .then(r=>{
         console.log(r)
+        this.props.history.push('/login')
+        console.log('User created, Go to profile')
       }).catch(e=>{
+        console.log('algo salió mal, volver a intentar')
         console.log(e)
       })
   }
@@ -25,10 +29,15 @@ class AuthPage extends Component {
     e.preventDefault()
     login(user)
       .then(r=>{
-        console.log('logueado', r)
-        localStorage.setItem('loggedUser',JSON.stringify(r))
-        this.props.history.push('/profile')
-        console.log('Go to profile')
+        if(r.name){
+          console.log('logueado', r)
+          localStorage.setItem('loggedUser',JSON.stringify(r))
+          this.props.history.push('/profile')
+          console.log('Go to profile')
+        }
+        else {
+          console.log('algo salió mal, revisar credenciales')
+        }
       }).catch(e=>{
         console.log(e)
       })
@@ -47,13 +56,11 @@ class AuthPage extends Component {
       const { signup, login, handleText } = this
     return (
       <div>
-        <div>
-          {pathname==='/login'?
-          <LoginForm login={login} handleText={handleText}/>
-          :
-          <SignupForm signup={signup} handleText={handleText}/>
-          }
-        </div>
+        {pathname==='/login'?
+        <LoginForm login={login} handleText={handleText}/>
+        :
+        <SignupForm signup={signup} handleText={handleText}/>
+        }
       </div>
     )
   }
