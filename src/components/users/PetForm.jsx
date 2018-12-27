@@ -5,16 +5,20 @@ const FormItem = Form.Item;
 const RadioButton = Radio.Button;
 const RadioGroup = Radio.Group;
 const Option = Select.Option;
+const { TextArea } = Input;
 
-const PetForm = ({addPet, handleText, handleSelectChange}) => {
+const PetForm = ({addPet, handleText, handleSelectChange, handleImage}) => {
   return (
     <div>
-      <Form layout="inline" method="POST" onSubmit={addPet}>
+      <Form layout="vertical" method="POST" onSubmit={addPet}>
         <FormItem>
-          <Input name="name" onChange={handleText} prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Name" />
+          <input onChange={handleImage} type="file" name="photoURL"/>
         </FormItem>
         <FormItem>
-          <RadioGroup name="size" defaultValue="Small" size="large" buttonStyle="solid" 
+          <Input name="name" onChange={handleText} prefix={<Icon type="smile" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Name" />
+        </FormItem>
+        <FormItem>
+          <RadioGroup name="size" size="large" buttonStyle="solid" 
           onChange={handleText}>
             <RadioButton value="Small">Small</RadioButton>
             <RadioButton value="Medium">Medium</RadioButton>
@@ -23,7 +27,7 @@ const PetForm = ({addPet, handleText, handleSelectChange}) => {
           </RadioGroup>
         </FormItem>
         <FormItem>
-          <RadioGroup name="gender" defaultValue="Male" size="large" buttonStyle="solid" 
+          <RadioGroup name="gender" size="large" buttonStyle="solid" 
           onChange={handleText}>
             <RadioButton value="Male">Male</RadioButton>
             <RadioButton value="Female">Female</RadioButton>
@@ -42,6 +46,9 @@ const PetForm = ({addPet, handleText, handleSelectChange}) => {
             <Option value="Cat">Cat</Option>
             <Option value="Other">Other</Option>
           </Select>
+        </FormItem>
+        <FormItem>
+          <TextArea name="description" rows={4} placeholder="Describe your pet" onChange={handleText}/>
         </FormItem>
         <FormItem>
           <Button type="primary" htmlType="submit">Save</Button>

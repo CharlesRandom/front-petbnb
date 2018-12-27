@@ -1,4 +1,5 @@
 import axios from 'axios'
+import firebase from './firebase'
 
 const host = 'http://localhost:3000/pets'
 
@@ -14,4 +15,13 @@ export const getUserPets = () => {
   return axios.get(host + '/all', {withCredentials:true})
     .then(r=>r.data)
     .catch(e=>e.response)
+}
+
+export const uploadFile=(file)=>{
+  console.log('subiendo')
+  const task = firebase.storage().ref('chelas').child(file.name).put(file)
+
+  return task
+      .then(snap=>snap.ref.getDownloadURL())
+      .then(link=>link)
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {addPet} from '../../services/pets'
+import {addPet, uploadFile} from '../../services/pets'
 
 import PetForm from './PetForm'
 
@@ -10,10 +10,11 @@ class AddPet extends Component {
   }
 
   addPet = e => {
+    e.preventDefault()
     const owner = JSON.parse(localStorage.getItem('loggedUser'))
     const {pet} = this.state
     pet['owner'] = owner._id
-    e.preventDefault()
+    console.log(pet)
     addPet(pet)
       .then(r=>{
         this.props.history.push('/pets')
@@ -24,13 +25,11 @@ class AddPet extends Component {
   }
 
   handleText = e => {
-    // const owner = JSON.parse(localStorage.getItem('loggedUser'))
     const {pet} = this.state
     const field = e.target.name
     const value = e.target.value
     pet[field] = value
-    // pet['owner'] = owner._id
-    console.log(pet)
+    // console.log(pet)
     this.setState({pet})
   }
 
@@ -41,11 +40,26 @@ class AddPet extends Component {
     this.setState({pet})
   }
 
+  handleImage=(e)=>{
+    console.log(e.target.files)
+    const {pet} = this.state
+    const file = e.target.files[0]
+    uploadFile(file)
+      .then(link=>{
+        pet['photoURL'] = link
+        this.setState({pet})
+        console.log('done')
+      })
+  }
+
   render() {
-      const { addPet, handleText, handleSelectChange } = this
+      const { addPet, handleText, handleSelectChange, handleImage } = this
     return (
       <div>
-        <PetForm addPet={addPet} handleText={handleText} handleSelectChange={handleSelectChange}/>
+        <PetForm addPet={addPet} 
+        handleText={handleText}
+        handleSelectChange={handleSelectChange}
+        handleImage={handleImage}/>
       </div>
     )
   }

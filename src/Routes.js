@@ -4,6 +4,7 @@ import AuthPage from './components/auth/AuthPage';
 import ProfilePage from './components/users/ProfilePage';
 import PetsPage from './components/users/PetsPage';
 import AddPet from './components/users/AddPet';
+import AddHost from './components/users/AddHost';
 
 const Routes = () => (
   <Switch>
@@ -12,6 +13,7 @@ const Routes = () => (
     <Route path='/profile' component={ProfilePage}/>
     <Route path='/pets' component={PetsPage}/>
     <Route path='/add-pet' component={AddPet}/>
+    <Route path='/add-bank' component={AddHost}/>
   </Switch>
 )
 

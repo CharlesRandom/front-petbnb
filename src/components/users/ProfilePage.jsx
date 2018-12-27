@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {getProfile} from '../../services/auth'
+// import {getProfile} from '../../services/auth'
 
 class ProfilePage extends Component {
 
@@ -8,15 +8,18 @@ class ProfilePage extends Component {
   }
 
   componentWillMount(){
-    const loggedUser = JSON.parse(localStorage.getItem('loggedUser'))
-    if(!loggedUser) this.props.history.push('/login')
+    const user = JSON.parse(localStorage.getItem('loggedUser'))
+    if(!user) this.props.history.push('/login')
+    // else {
+    //   getProfile()
+    //   .then(user=>{
+    //     this.setState({user})
+    //   }).catch(error=>{
+    //     console.log(error)
+    //   })
+    // }
     else {
-      getProfile()
-      .then(user=>{
-        this.setState({user})
-      }).catch(error=>{
-        console.log(error)
-      })
+      this.setState({user})
     }
   }
 
