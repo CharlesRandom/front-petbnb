@@ -17,9 +17,8 @@ class AuthPage extends Component {
       .then(r=>{
         console.log(r)
         this.props.history.push('/login')
-        console.log('User created, Go to profile')
       }).catch(e=>{
-        console.log('algo salió mal, volver a intentar')
+        console.log('something went wrong, try sign up again')
         console.log(e)
       })
   }
@@ -36,7 +35,7 @@ class AuthPage extends Component {
           console.log('Go to profile')
         }
         else {
-          console.log('algo salió mal, revisar credenciales')
+          console.log('something went wrong, try log in again')
         }
       }).catch(e=>{
         console.log(e)
