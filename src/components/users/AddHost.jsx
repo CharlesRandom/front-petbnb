@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {addBank} from '../../services/banks'
 import {addAddress} from '../../services/addresses'
-import {uploadFile} from '../../services/pets'
+import {uploadFile, addHost} from '../../services/hosts'
 
 import BankForm from './BankForm'
 import AddressForm from './AddressForm'
@@ -10,13 +10,39 @@ import HostForm from './HostForm'
 
 class AddHost extends Component {
   state={
-    data:{}
+    user:{},
+    data:{},
+    current:0
+  }
+
+  componentWillMount(){
+    const user = JSON.parse(localStorage.getItem('loggedUser'))
+    if(!user) this.props.history.push('/login')
+    else {
+      this.setState({user})
+    }
+  }
+
+  addHost = e => {
+    e.preventDefault()
+    // const user = JSON.parse(localStorage.getItem('loggedUser'))
+    const {data, user} = this.state
+    data['user'] = user._id
+    data['host'] = true
+    addHost(data)
+    .then(r=>{
+      localStorage.setItem('loggedUser',JSON.stringify(r))
+      this.setState({current:1})
+    }).catch(e=>{
+      console.log('Something went wrong D: try adding the data again')
+      console.log(e)
+    })
   }
 
   addBank = e => {
     e.preventDefault()
-    const user = JSON.parse(localStorage.getItem('loggedUser'))
-    const {data} = this.state
+    // const user = JSON.parse(localStorage.getItem('loggedUser'))
+    const {data, user} = this.state
     data['user'] = user._id
     const bank = {
       user:data.user,
@@ -26,7 +52,7 @@ class AddHost extends Component {
     addBank(bank)
       .then(r=>{
         localStorage.setItem('loggedUser',JSON.stringify(r))
-        this.props.history.push('/pets')
+        this.props.history.push('/profile')
       }).catch(e=>{
         console.log('Something went wrong D: try adding the bank data again')
         console.log(e)
@@ -35,8 +61,8 @@ class AddHost extends Component {
 
   addAddress = e => {
     e.preventDefault()
-    const user = JSON.parse(localStorage.getItem('loggedUser'))
-    const {data} = this.state
+    // const user = JSON.parse(localStorage.getItem('loggedUser'))
+    const {data, user} = this.state
     data['user'] = user._id
     const address = {
       user:data.user,
@@ -50,7 +76,7 @@ class AddHost extends Component {
     addAddress(address)
       .then(r=>{
         localStorage.setItem('loggedUser',JSON.stringify(r))
-        this.props.history.push('/profile')
+        this.setState({current:2})
       }).catch(e=>{
         console.log('Something went wrong D: try adding the address again')
         console.log(e)
@@ -68,26 +94,34 @@ class AddHost extends Component {
 
   handleImage=(e)=>{
     console.log(e.target.files)
-    const {pet} = this.state
+    console.log(e.target.name)
+    const image = e.target.name
+    const {data} = this.state
     const file = e.target.files[0]
     uploadFile(file)
       .then(link=>{
-        pet['photoURL'] = link
-        this.setState({pet})
+        data[image] = link
+        this.setState({data})
         console.log('done')
+      }).catch(e=>{
+        console.log('Something went wrong D: try adding the image again')
+        console.log(e)
       })
   }
 
   render() {
-      const { addBank, addAddress, handleText } = this
+      const { addHost, addBank, addAddress, handleText, handleImage } = this
+      const {current} = this.state
     return (
       <div>
-        <AddressForm addAddress={addAddress} 
-        handleText={handleText}/>
-        <HostForm addHost={addAddress} 
-        handleText={handleText}/>
-        <BankForm addBank={addBank} 
-        handleText={handleText}/>
+        {current === 0 ? 
+        <HostForm addHost={addHost} handleText={handleText} handleImage={handleImage}/>
+        :
+        current === 1 ?
+        <AddressForm addAddress={addAddress} handleText={handleText}/>
+        :
+        <BankForm addBank={addBank} handleText={handleText}/>
+        }
       </div>
     )
   }

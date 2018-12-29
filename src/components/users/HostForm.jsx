@@ -31,13 +31,13 @@ const HostForm = ({addHost, handleText, handleImage}) => {
           </RadioGroup>
         </FormItem>
         <FormItem>
-          <Input name="title" onChange={handleText} prefix={<Icon type="smile" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Slogan" />
+          <Input name="title" onChange={handleText} prefix={<Icon type="smile" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Profile title, how your profile will be listed" />
         </FormItem>
         <FormItem>
           <TextArea name="description" rows={4} placeholder="Describe how will be the experience with you" onChange={handleText}/>
         </FormItem>
         <FormItem>
-          <Button type="primary" htmlType="submit">Save</Button>
+          <Button type="primary" htmlType="submit">Next</Button>
         </FormItem>
       </Form>
     </div>

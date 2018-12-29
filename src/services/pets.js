@@ -18,8 +18,8 @@ export const getUserPets = () => {
 }
 
 export const uploadFile=(file)=>{
-  console.log('subiendo')
-  const task = firebase.storage().ref('chelas').child(file.name).put(file)
+  console.log('uploading pet image')
+  const task = firebase.storage().ref('pets').child(file.name).put(file)
 
   return task
       .then(snap=>snap.ref.getDownloadURL())

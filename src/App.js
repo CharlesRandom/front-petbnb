@@ -10,7 +10,9 @@ class App extends Component {
         <nav>
           <Link to='/login'>Login |</Link>
           <Link to='/signup'>Signup |</Link>
-          <Link to='/profile'>Profile</Link>
+          <Link to='/profile'>Profile |</Link>
+          <Link to='/host'>Become a Host |</Link>
+          <Link to='/hosts'>Hosts</Link>
         </nav>
         <Routes/>
       </div>

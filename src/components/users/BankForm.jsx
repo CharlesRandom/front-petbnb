@@ -14,7 +14,7 @@ const BankForm = ({addBank, handleText}) => {
           <Input name="clabe" onChange={handleText} prefix={<Icon type="wallet" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Clabe" />
         </FormItem>
         <FormItem>
-          <Button type="primary" htmlType="submit">Save</Button>
+          <Button type="primary" htmlType="submit">Done</Button>
         </FormItem>
       </Form>
     </div>

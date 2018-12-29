@@ -26,7 +26,7 @@ const AddressForm = ({addAddress, handleText}) => {
           <Input name="zipcode" onChange={handleText} prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Zipcode" />
         </FormItem>
         <FormItem>
-          <Button type="primary" htmlType="submit">Save</Button>
+          <Button type="primary" htmlType="submit">Next</Button>
         </FormItem>
       </Form>
     </div>

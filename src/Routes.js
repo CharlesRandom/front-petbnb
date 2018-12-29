@@ -13,7 +13,7 @@ const Routes = () => (
     <Route path='/profile' component={ProfilePage}/>
     <Route path='/pets' component={PetsPage}/>
     <Route path='/add-pet' component={AddPet}/>
-    <Route path='/add-bank' component={AddHost}/>
+    <Route path='/host' component={AddHost}/>
   </Switch>
 )
 
