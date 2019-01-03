@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {getHosts} from '../../services/hosts'
 import HostCard from './HostCard';
+import SearchBox from '../reservations/SearchBox'
 
 class HostsPage extends Component {
 
@@ -31,6 +32,7 @@ class HostsPage extends Component {
     return (
       <div>
         <h2>Hosts</h2>
+        <SearchBox />
         <div>
           {hosts.length > 0 ?
           hosts.map(host => <HostCard key={host._id} host={host}/>)

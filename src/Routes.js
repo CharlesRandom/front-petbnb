@@ -6,6 +6,7 @@ import PetsPage from './components/users/PetsPage';
 import AddPet from './components/users/AddPet';
 import AddHost from './components/users/AddHost';
 import HostsPage from './components/users/HostsPage';
+import SearchBox from './components/reservations/SearchBox';
 
 const Routes = () => (
   <Switch>
@@ -16,6 +17,7 @@ const Routes = () => (
     <Route path='/hosts' component={HostsPage}/>
     <Route path='/add-pet' component={AddPet}/>
     <Route path='/host' component={AddHost}/>
+    <Route path='/search' component={SearchBox}/>
   </Switch>
 )
 
