@@ -10,6 +10,13 @@ export const addHost = hostData => {
     .catch(e=>e.response)
 }
 
+//hosts data
+export const getHosts = () => {
+  return axios.get(host + '/all', {withCredentials:true})
+    .then(r=>r.data)
+    .catch(e=>e.response)
+}
+
 export const uploadFile=(file)=>{
   console.log('uploading file')
   const task = firebase.storage().ref('hosts').child(file.name).put(file)
