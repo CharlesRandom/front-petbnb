@@ -10,14 +10,13 @@ class PetsPage extends Component {
   }
 
   componentWillMount(){
-    console.log("will mount")
+    console.log("Pets page will mount")
     const user = JSON.parse(localStorage.getItem('loggedUser'))
     if(!user) this.props.history.push('/login')
     else {
-      console.log(user)
       getUserPets()
       .then(user=>{
-        console.log(user)
+        console.log(user.pets)
         this.setState({user})
       }).catch(error=>{
         console.log(error)
@@ -27,7 +26,6 @@ class PetsPage extends Component {
 
   render() {
     const {user} = this.state
-    console.log(user)
     return (
       <div>
         <h2>Your pets</h2>

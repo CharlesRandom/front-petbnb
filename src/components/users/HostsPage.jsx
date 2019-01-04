@@ -11,11 +11,10 @@ class HostsPage extends Component {
   }
 
   componentWillMount(){
-    console.log("will mount")
+    console.log("Hosts Page will mount")
     const user = JSON.parse(localStorage.getItem('loggedUser'))
     if(!user) this.props.history.push('/login')
     else {
-      console.log(user)
       getHosts()
       .then(hosts=>{
         console.log(hosts)
@@ -28,12 +27,11 @@ class HostsPage extends Component {
 
   render() {
     const {hosts} = this.state
-    console.log(hosts)
     return (
       <div>
         <h2>Hosts</h2>
         <SearchBox />
-        <div>
+        <div className="hosts-container">
           {hosts.length > 0 ?
           hosts.map(host => <HostCard key={host._id} host={host}/>)
           :

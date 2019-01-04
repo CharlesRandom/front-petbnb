@@ -15,8 +15,8 @@ function onChange(dates, dateStrings) {
 
 const SearchBox = () => {
   return (
-    <div>
-      <h3>Search</h3>
+    <div className="search-box">
+      <h3>Petbnb</h3>
       <Search
         placeholder="Town or postcode..."
         onSearch={value => console.log(value)}

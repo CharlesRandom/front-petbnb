@@ -19,6 +19,8 @@ code {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  border: 1px solid #9C9C9C;
+  border-radius: 5px;
 }
 
 .host-avatar {
@@ -29,4 +31,22 @@ code {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.search-box {
+  max-width: 60vw;
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.hosts-container {
+  max-width: 60vw;
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
