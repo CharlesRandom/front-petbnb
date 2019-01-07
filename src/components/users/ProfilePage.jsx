@@ -1,70 +1,45 @@
 import React, { Component } from 'react'
 // import {getProfile} from '../../services/auth'
-import { Menu, Icon } from 'antd';
+import { Tabs, Icon } from 'antd';
 import PetsPage from './PetsPage'
 import HostsPage from './HostsPage'
 import AccountPage from './AccountPage';
+import Messenger from '../reservations/Messenger'
+
+const TabPane = Tabs.TabPane;
 
 class ProfilePage extends Component {
 
   state = {
-    current: 'pets',
     user:{}
-  }
-
-  handleClick = (e) => {
-    console.log('click ', e);
-    this.setState({
-      current: e.key,
-    });
-    // this.props.history.push('/pets')
   }
 
   componentWillMount(){
     const user = JSON.parse(localStorage.getItem('loggedUser'))
     if(!user) this.props.history.push('/login')
-    // else {
-    //   getProfile()
-    //   .then(user=>{
-    //     this.setState({user})
-    //   }).catch(error=>{
-    //     console.log(error)
-    //   })
-    // }
-    else {
-      this.setState({user})
-    }
+    else this.setState({user})
   }
 
   render() {
-      const {user, current} = this.state
+      const {user} = this.state
     return (
       <div>
-        <h1>{user.name}</h1>
-        <h2>{user.email}</h2>
-        <Menu
-        onClick={this.handleClick}
-        selectedKeys={[this.state.current]}
-        mode="horizontal"
-        >
-          <Menu.Item key="dashboard">
-            <Icon type="dashboard" />Dashboard
-          </Menu.Item>
-          <Menu.Item key="messenger">
-            <Icon type="inbox" />Messenger
-          </Menu.Item>
-          <Menu.Item key="pets">
-            <Icon type="smile" />Pets
-          </Menu.Item>
-          <Menu.Item key="account">
-            <Icon type="user" />Account
-          </Menu.Item>
-        </Menu>
-        {current === "pets" ? <PetsPage/> 
-        :
-        current === "account" ? <AccountPage user={user}/> 
-        :
-        <HostsPage/>}
+        <h1>Hi {user.name}!</h1>
+        <h2>Welcome</h2>
+        <Tabs defaultActiveKey="dashboard">
+          <TabPane tab={<span><Icon type="dashboard" />Dashboard</span>} key="dashboard">
+            <HostsPage/>
+          </TabPane>
+          <TabPane tab={<span><Icon type="inbox" />Messenger</span>} key="messenger">
+            <Messenger/>
+          </TabPane>
+          <TabPane tab={<span><Icon type="smile" />Pets</span>} key="pets">
+            <PetsPage/>
+          </TabPane>
+          <TabPane tab={<span><Icon type="user" />Account</span>} key="account">
+            <AccountPage user={user}/>
+          </TabPane>
+        </Tabs>
       </div>
     )
   }

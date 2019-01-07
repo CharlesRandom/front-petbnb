@@ -14,9 +14,9 @@ class PetsPage extends Component {
     const user = JSON.parse(localStorage.getItem('loggedUser'))
     if(!user) this.props.history.push('/login')
     else {
-      getUserPets()
+      getUserPets(user)
       .then(user=>{
-        console.log(user.pets)
+        // console.log(user.pets)
         this.setState({user})
       }).catch(error=>{
         console.log(error)
@@ -29,14 +29,14 @@ class PetsPage extends Component {
     return (
       <div>
         <h2>Your pets</h2>
-        <div>
+        <div className="pets-container">
           {user.pets ?
           user.pets.map(pet => <PetCard key={pet._id} pet={pet}/>)
           :
           <p>No hay mascotas</p>
           }
-          <Button type="primary" size="large" icon="plus" href="/add-pet">Add pet</Button>
         </div>
+        <Button type="primary" size="large" icon="plus" href="/add-pet">Add pet</Button>
       </div>
     )
   }

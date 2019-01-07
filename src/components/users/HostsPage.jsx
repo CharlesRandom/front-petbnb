@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import {getHosts} from '../../services/hosts'
 import HostCard from './HostCard';
 import SearchBox from '../reservations/SearchBox'
+import MapContainer from '../reservations/MapContainer';
+
 
 class HostsPage extends Component {
 
@@ -28,15 +30,20 @@ class HostsPage extends Component {
   render() {
     const {hosts} = this.state
     return (
-      <div>
+      <div className="hosts-page-container">
         <h2>Hosts</h2>
         <SearchBox />
-        <div className="hosts-container">
-          {hosts.length > 0 ?
-          hosts.map(host => <HostCard key={host._id} host={host}/>)
-          :
-          <p>No hay hosts</p>
-          }
+        <div className="map-hosts-container">
+          <div className="hosts-container">
+            {hosts.length > 0 ?
+            hosts.map(host => <HostCard key={host._id} host={host}/>)
+            :
+            <p>No hay hosts</p>
+            }
+          </div>
+          <div className="map-container">
+            <MapContainer hosts={hosts}/>
+          </div>
         </div>
       </div>
     )

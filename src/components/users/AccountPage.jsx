@@ -6,6 +6,7 @@ const { Meta } = Card;
 const AccountPage = ({user}) => {
   return (
     <div>
+      <div className="account-container">
       <Card
         style={{ width: 300 }}
         cover={<img alt="example" src={user.photoURL ? user.photoURL : "https://thesocietypages.org/socimages/files/2009/05/nopic_192.gif"} />}
@@ -29,6 +30,7 @@ const AccountPage = ({user}) => {
           description={user.email}
         />
       </Card>
+    </div>
     </div>
   )
 }

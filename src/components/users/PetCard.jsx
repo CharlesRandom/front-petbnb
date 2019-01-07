@@ -12,7 +12,7 @@ const PetCard = ({pet}) => {
         actions={[<Icon type="delete" />, <Icon type="edit" />]}
       >
         <Meta
-          avatar={<Avatar src="https://thesocietypages.org/socimages/files/2009/05/nopic_192.gif" />}
+          avatar={<Avatar src="https://ar.seaicons.com/wp-content/uploads/2015/10/Cat-icon1.png" />}
           title={pet.name}
           description={pet.description}
         />
