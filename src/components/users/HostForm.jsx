@@ -1,17 +1,22 @@
 import React from 'react'
-import { Form, Icon, Input, Radio, Button } from 'antd';
+import { Form, Icon, Input, Radio, Button, Upload } from 'antd';
 
 const FormItem = Form.Item;
 const RadioButton = Radio.Button;
 const RadioGroup = Radio.Group;
 const { TextArea } = Input;
 
-const HostForm = ({addHost, handleText, handleImage}) => {
+const HostForm = ({addHost, handleText, handleImage, onChange}) => {
   return (
     <div>
       <Form layout="vertical" method="POST" onSubmit={addHost}>
         <FormItem>
-          <input onChange={handleImage} type="file" name="photoURL"/>
+          {/* <input onChange={handleImage} type="file" name="photoURL"/> */}
+          <Upload onChange={(info)=>onChange(info,"photoURL")}>
+            <Button>
+              <Icon type="upload" /> Upload Profile Pic
+            </Button>
+          </Upload>
         </FormItem>
         <FormItem>
           <input onChange={handleImage} type="file" name="cover"/>

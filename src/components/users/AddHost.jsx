@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { message } from 'antd';
 import {addBank} from '../../services/banks'
 import {addAddress} from '../../services/addresses'
 import {uploadFile, addHost} from '../../services/hosts'
@@ -109,13 +110,41 @@ class AddHost extends Component {
       })
   }
 
+  onChange = (info,field) => {
+    console.log("field", field)
+    const {data} = this.state
+    const file = info.file.originFileObj
+    console.log(file)
+    uploadFile(file)
+      .then(link=>{
+        info.file.status = "done"
+        data["photoURL"] = link
+        this.setState({data})
+        console.log(data)
+      }).catch(e=>{
+        console.log('Something went wrong D: try adding the image again')
+        console.log(e)
+      })
+    // if (info.file.status !== 'uploading') {
+    //   console.log('not uploading')
+    //   console.log(info.file, info.fileList);
+    // }
+    // if (info.file.status === 'done') {
+    //   console.log('done')
+    //   message.success(`${info.file.name} file uploaded successfully`);
+    // } else if (info.file.status === 'error') {
+    //   console.log('alv')
+    //   message.error(`${info.file.name} file upload failed.`);
+    // }
+  }
+
   render() {
-      const { addHost, addBank, addAddress, handleText, handleImage } = this
+      const { addHost, addBank, addAddress, handleText, handleImage, onChange } = this
       const {current} = this.state
     return (
       <div>
         {current === 0 ? 
-        <HostForm addHost={addHost} handleText={handleText} handleImage={handleImage}/>
+        <HostForm addHost={addHost} handleText={handleText} handleImage={handleImage} onChange={onChange}/>
         :
         current === 1 ?
         <AddressForm addAddress={addAddress} handleText={handleText}/>
