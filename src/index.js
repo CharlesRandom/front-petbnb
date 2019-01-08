@@ -5,6 +5,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom'
 import 'antd/dist/antd.css'
+require('dotenv').config()
 
 const WithRouter = () => (
   <BrowserRouter><App/></BrowserRouter>

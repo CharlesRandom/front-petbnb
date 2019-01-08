@@ -5,7 +5,7 @@ const FormItem = Form.Item;
 
 const BankForm = ({addBank, handleText}) => {
   return (
-    <div>
+    <div className="bank-form">
       <Form layout="vertical" method="POST" onSubmit={addBank}>
         <FormItem>
           <Input name="name" onChange={handleText} prefix={<Icon type="bank" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Bank name" />

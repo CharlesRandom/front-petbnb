@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { message } from 'antd';
 import {addBank} from '../../services/banks'
 import {addAddress} from '../../services/addresses'
 import {uploadFile, addHost} from '../../services/hosts'
@@ -29,7 +28,6 @@ class AddHost extends Component {
     // const user = JSON.parse(localStorage.getItem('loggedUser'))
     const {data, user} = this.state
     data['user'] = user._id
-    data['host'] = true
     addHost(data)
     .then(r=>{
       localStorage.setItem('loggedUser',JSON.stringify(r))
@@ -111,31 +109,18 @@ class AddHost extends Component {
   }
 
   onChange = (info,field) => {
-    console.log("field", field)
     const {data} = this.state
     const file = info.file.originFileObj
-    console.log(file)
     uploadFile(file)
       .then(link=>{
         info.file.status = "done"
-        data["photoURL"] = link
+        data[field] = link
         this.setState({data})
         console.log(data)
       }).catch(e=>{
         console.log('Something went wrong D: try adding the image again')
         console.log(e)
       })
-    // if (info.file.status !== 'uploading') {
-    //   console.log('not uploading')
-    //   console.log(info.file, info.fileList);
-    // }
-    // if (info.file.status === 'done') {
-    //   console.log('done')
-    //   message.success(`${info.file.name} file uploaded successfully`);
-    // } else if (info.file.status === 'error') {
-    //   console.log('alv')
-    //   message.error(`${info.file.name} file upload failed.`);
-    // }
   }
 
   render() {

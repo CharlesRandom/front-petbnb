@@ -17,6 +17,8 @@ class AddPet extends Component {
     console.log(pet)
     addPet(pet)
       .then(r=>{
+        console.log(r)
+        localStorage.setItem('loggedUser',JSON.stringify(r))
         this.props.history.push('/pets')
       }).catch(e=>{
         console.log('Something went wrong D: try again')
@@ -52,14 +54,30 @@ class AddPet extends Component {
       })
   }
 
+  onChange = (info,field) => {
+    const {pet} = this.state
+    const file = info.file.originFileObj
+    uploadFile(file)
+      .then(link=>{
+        info.file.status = "done"
+        pet[field] = link
+        this.setState({pet})
+        console.log(pet)
+      }).catch(e=>{
+        console.log('Something went wrong D: try adding the image again')
+        console.log(e)
+      })
+  }
+
   render() {
-      const { addPet, handleText, handleSelectChange, handleImage } = this
+      const { addPet, handleText, handleSelectChange, handleImage, onChange } = this
     return (
       <div>
         <PetForm addPet={addPet} 
         handleText={handleText}
         handleSelectChange={handleSelectChange}
-        handleImage={handleImage}/>
+        handleImage={handleImage}
+        onChange={onChange}/>
       </div>
     )
   }

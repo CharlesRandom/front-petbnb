@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, Icon, Input, Radio, Select, Button } from 'antd';
+import { Form, Icon, Input, Radio, Select, Button, Upload } from 'antd';
 
 const FormItem = Form.Item;
 const RadioButton = Radio.Button;
@@ -7,12 +7,17 @@ const RadioGroup = Radio.Group;
 const Option = Select.Option;
 const { TextArea } = Input;
 
-const PetForm = ({addPet, handleText, handleSelectChange, handleImage}) => {
+const PetForm = ({addPet, handleText, handleSelectChange, handleImage, onChange}) => {
   return (
-    <div>
+    <div className="pet-form">
       <Form layout="vertical" method="POST" onSubmit={addPet}>
         <FormItem>
-          <input onChange={handleImage} type="file" name="photoURL"/>
+          {/* <input onChange={handleImage} type="file" name="photoURL"/> */}
+          <Upload onChange={(info)=>onChange(info,"photoURL")}>
+            <Button>
+              <Icon type="upload" /> Upload Pet Pic
+            </Button>
+          </Upload>
         </FormItem>
         <FormItem>
           <Input name="name" onChange={handleText} prefix={<Icon type="smile" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Name" />

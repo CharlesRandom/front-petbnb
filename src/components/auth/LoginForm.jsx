@@ -5,8 +5,8 @@ const FormItem = Form.Item;
 
 const LoginForm = ({login, handleText}) => {
   return (
-    <div>
-      <Form layout="inline" method="POST" onSubmit={login}>
+    <div className="auth-form">
+      <Form layout="vertical" method="POST" onSubmit={login}>
         <FormItem>
         <Input name="email" onChange={handleText} prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Email" />
         </FormItem>

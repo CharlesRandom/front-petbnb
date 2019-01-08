@@ -9,7 +9,7 @@ const AccountPage = ({user}) => {
       <div className="account-container">
       <Card
         style={{ width: 300 }}
-        cover={<img alt="example" src={user.photoURL ? user.photoURL : "https://thesocietypages.org/socimages/files/2009/05/nopic_192.gif"} />}
+        cover={<img alt="cover pic" src={user.cover ? user.cover : "https://thesocietypages.org/socimages/files/2009/05/nopic_192.gif"} />}
         actions={[
         <div>
           <Icon type="setting" />
@@ -25,7 +25,7 @@ const AccountPage = ({user}) => {
         </div>]}
       >
         <Meta
-          avatar={<Avatar src="https://thesocietypages.org/socimages/files/2009/05/nopic_192.gif" />}
+          avatar={<Avatar size="large" src={user.photoURL ? user.photoURL : "https://thesocietypages.org/socimages/files/2009/05/nopic_192.gif"} />}
           title={user.name}
           description={user.email}
         />

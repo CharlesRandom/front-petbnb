@@ -8,7 +8,7 @@ const { TextArea } = Input;
 
 const HostForm = ({addHost, handleText, handleImage, onChange}) => {
   return (
-    <div>
+    <div className="host-form">
       <Form layout="vertical" method="POST" onSubmit={addHost}>
         <FormItem>
           {/* <input onChange={handleImage} type="file" name="photoURL"/> */}
@@ -19,7 +19,12 @@ const HostForm = ({addHost, handleText, handleImage, onChange}) => {
           </Upload>
         </FormItem>
         <FormItem>
-          <input onChange={handleImage} type="file" name="cover"/>
+          {/* <input onChange={handleImage} type="file" name="cover"/> */}
+          <Upload onChange={(info)=>onChange(info,"cover")}>
+            <Button>
+              <Icon type="upload" /> Upload Cover Pic
+            </Button>
+          </Upload>
         </FormItem>
         <FormItem>
           <Input name="phone" onChange={handleText} prefix={<Icon type="phone" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Phone" />

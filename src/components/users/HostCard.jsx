@@ -15,7 +15,7 @@ const HostCard = ({host}) => {
         <div>
           <Icon type="environment" />{host.address.zipcode}, {host.address.city}
         </div>
-        <Rate allowHalf defaultValue={host.rate ? host.rate : 4.5} />
+        <Rate disabled allowHalf defaultValue={host.rate ? host.rate : 4.5} />
         <div>
           <Icon type="clock-circle" /> Responds within 1h
         </div>

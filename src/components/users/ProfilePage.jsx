@@ -27,7 +27,7 @@ class ProfilePage extends Component {
         <h1>Hi {user.name}!</h1>
         <h2>Welcome</h2>
         <Tabs defaultActiveKey="dashboard">
-          <TabPane tab={<span><Icon type="dashboard" />Dashboard</span>} key="dashboard">
+          <TabPane tab={<span><Icon type="search" />Find a host</span>} key="search">
             <HostsPage/>
           </TabPane>
           <TabPane tab={<span><Icon type="inbox" />Messenger</span>} key="messenger">

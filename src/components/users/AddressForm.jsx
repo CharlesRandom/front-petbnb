@@ -5,7 +5,7 @@ const FormItem = Form.Item;
 
 const AddressForm = ({addAddress, handleText}) => {
   return (
-    <div>
+    <div className="address-form">
       <Form layout="vertical" method="POST" onSubmit={addAddress}>
         <FormItem>
           <Input name="street" onChange={handleText} prefix={<Icon type="car" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Street" />
