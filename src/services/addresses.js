@@ -1,6 +1,7 @@
 import axios from 'axios'
 
-const host = 'http://localhost:3000/addresses'
+// const host = 'http://localhost:3000/addresses'
+const host = 'https://ironpetbnb.herokuapp.com'
 
 //add bank account
 export const addAddress = address => {

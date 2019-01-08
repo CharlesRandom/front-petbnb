@@ -1,7 +1,8 @@
 import axios from 'axios'
 import firebase from './firebase'
 
-const host = 'http://localhost:3000/hosts'
+// const host = 'http://localhost:3000/hosts'
+const host = 'https://ironpetbnb.herokuapp.com/hosts'
 
 //add pet
 export const addHost = hostData => {
