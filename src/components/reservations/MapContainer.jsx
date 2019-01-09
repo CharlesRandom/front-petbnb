@@ -36,8 +36,8 @@ export class MapContainer extends Component {
         zoom={12}
         style={mapStyles}
         initialCenter={{
-         lat: 19.3977718,
-         lng: -99.1718299
+         lat: 19.3977762,
+         lng: -99.1715564
         }}
       >
         {this.props.hosts.map(host => <Marker key={host._id} 

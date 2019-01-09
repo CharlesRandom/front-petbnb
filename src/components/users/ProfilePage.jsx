@@ -23,23 +23,26 @@ class ProfilePage extends Component {
   render() {
       const {user} = this.state
     return (
-      <div>
+      <div style={{height:"100vh",
+      overflowY:"scroll"}}>
         <h1>Hi {user.name}!</h1>
         <h2>Welcome</h2>
-        <Tabs defaultActiveKey="dashboard">
-          <TabPane tab={<span><Icon type="search" />Find a host</span>} key="search">
-            <HostsPage/>
-          </TabPane>
-          <TabPane tab={<span><Icon type="inbox" />Messenger</span>} key="messenger">
-            <Messenger/>
-          </TabPane>
-          <TabPane tab={<span><Icon type="smile" />Pets</span>} key="pets">
-            <PetsPage/>
-          </TabPane>
-          <TabPane tab={<span><Icon type="user" />Account</span>} key="account">
-            <AccountPage user={user}/>
-          </TabPane>
-        </Tabs>
+        <div className="d-flex jcc">
+          <Tabs defaultActiveKey="search" size="large">
+            <TabPane tab={<span><Icon type="search" />Find a host</span>} key="search">
+              <HostsPage/>
+            </TabPane>
+            <TabPane tab={<span><Icon type="inbox" />Messenger</span>} key="messenger">
+              <Messenger/>
+            </TabPane>
+            <TabPane tab={<span><Icon type="smile" />Pets</span>} key="pets">
+              <PetsPage/>
+            </TabPane>
+            <TabPane tab={<span><Icon type="user" />Account</span>} key="account">
+              <AccountPage user={user}/>
+            </TabPane>
+          </Tabs>
+        </div>
       </div>
     )
   }

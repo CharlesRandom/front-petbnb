@@ -87,7 +87,7 @@ class Messenger extends Component {
     const { comments, submitting, value, user } = this.state;
 
     return (
-      <div>
+      <div className="messenger">
         {comments.length > 0 && <CommentList comments={comments} />}
         <Comment
           avatar={(

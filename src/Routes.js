@@ -7,9 +7,11 @@ import AddPet from './components/users/AddPet';
 import AddHost from './components/users/AddHost';
 import HostsPage from './components/users/HostsPage';
 import SearchBox from './components/reservations/SearchBox';
+import Home from './components/home/Home';
 
 const Routes = () => (
   <Switch>
+    <Route exact path='/' component={Home}/>
     <Route path='/signup' component={AuthPage}/>
     <Route path='/login' component={AuthPage}/>
     <Route path='/profile' component={ProfilePage}/>

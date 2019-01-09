@@ -31,8 +31,8 @@ class HostsPage extends Component {
     const {hosts} = this.state
     return (
       <div className="hosts-page-container">
-        <h2>Hosts</h2>
-        <SearchBox />
+        <div className="d-flex jcc aic"><h2>Hosts</h2></div>
+        <div className="d-flex jcc aic"><SearchBox /></div>
         <div className="map-hosts-container">
           <div className="hosts-container">
             {hosts.length > 0 ?

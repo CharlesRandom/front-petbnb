@@ -54,12 +54,14 @@ class AuthPage extends Component {
       const {pathname} = this.props.location
       const { signup, login, handleText } = this
     return (
-      <div>
-        {pathname==='/login'?
-        <LoginForm login={login} handleText={handleText}/>
-        :
-        <SignupForm signup={signup} handleText={handleText}/>
-        }
+      <div className="auth">
+        <div>
+          {pathname==='/login'?
+          <LoginForm login={login} handleText={handleText}/>
+          :
+          <SignupForm signup={signup} handleText={handleText}/>
+          }
+        </div>
       </div>
     )
   }

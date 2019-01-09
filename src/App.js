@@ -6,7 +6,7 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="home">
         <nav>
           <Link to='/login'>Login |</Link>
           <Link to='/signup'>Signup |</Link>

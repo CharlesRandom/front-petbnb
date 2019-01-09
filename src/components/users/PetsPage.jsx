@@ -28,7 +28,7 @@ class PetsPage extends Component {
     const {user} = this.state
     return (
       <div>
-        <h2>Your pets</h2>
+        <div className="d-flex jcc aic"><h2>Your pets</h2></div>
         <div className="pets-container">
           {user.pets ?
           user.pets.map(pet => <PetCard key={pet._id} pet={pet}/>)
@@ -36,7 +36,9 @@ class PetsPage extends Component {
           <p>No hay mascotas</p>
           }
         </div>
-        <Button type="primary" size="large" icon="plus" href="/add-pet">Add pet</Button>
+        <div className="d-flex jcc aic">
+          <Button type="primary" size="large" icon="plus" href="/add-pet">Add pet</Button>
+        </div>
       </div>
     )
   }

@@ -14,8 +14,11 @@ const LoginForm = ({login, handleText}) => {
           <Input name="password" onChange={handleText} prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Password" />
         </FormItem>
         <FormItem>
-          <Button type="primary" htmlType="submit">Log in</Button>
+          <div className="d-flex jcc aic">
+            <Button type="primary" htmlType="submit">Log in</Button>
+          </div>
         </FormItem>
+        <div className="d-flex jcc aic"><p>Or <a href="/signup">register now!</a></p></div>
       </Form>
     </div>
   )
