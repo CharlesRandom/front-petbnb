@@ -20,7 +20,7 @@ const SearchBox = () => {
       <Search
         placeholder="Town or postcode..."
         onSearch={value => console.log(value)}
-        style={{ width: 200 }}
+        style={{ margin:"0 20px" }}
       />
       <RangePicker
         ranges={{ Today: [moment(), moment()], 'This Month': [moment().startOf('month'), moment().endOf('month')] }}

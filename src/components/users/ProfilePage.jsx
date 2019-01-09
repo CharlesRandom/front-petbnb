@@ -5,6 +5,7 @@ import PetsPage from './PetsPage'
 import HostsPage from './HostsPage'
 import AccountPage from './AccountPage';
 import Messenger from '../reservations/Messenger'
+import ProfileNavbar from './ProfileNavbar';
 
 const TabPane = Tabs.TabPane;
 
@@ -23,9 +24,10 @@ class ProfilePage extends Component {
   render() {
       const {user} = this.state
     return (
-      <div style={{height:"100vh",
+      <div  className="box_profile" style={{height:"100vh",
       overflowY:"scroll"}}>
-        <h1>Hi {user.name}!</h1>
+        <ProfileNavbar />
+        <h1 style={{marginTop:"80px"}}>Hi {user.name}!</h1>
         <h2>Welcome</h2>
         <div className="d-flex jcc">
           <Tabs defaultActiveKey="search" size="large">

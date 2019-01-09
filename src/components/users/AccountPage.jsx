@@ -8,7 +8,7 @@ const AccountPage = ({user}) => {
     <div>
       <div className="account-container">
       <Card
-        style={{ width: 300 }}
+        style={{ width: 350 }}
         cover={<img alt="cover pic" src={user.cover ? user.cover : "https://thesocietypages.org/socimages/files/2009/05/nopic_192.gif"} />}
         actions={[
         <div>

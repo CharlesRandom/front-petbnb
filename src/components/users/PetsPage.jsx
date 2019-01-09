@@ -9,18 +9,27 @@ class PetsPage extends Component {
     user:{}
   }
 
+  // componentWillMount(){
+  //   console.log("Pets page will mount")
+  //   const user = JSON.parse(localStorage.getItem('loggedUser'))
+  //   if(!user) this.props.history.push('/login')
+  //   else {
+  //     getUserPets(user)
+  //     .then(user=>{
+  //       // console.log(user.pets)
+  //       this.setState({user})
+  //     }).catch(error=>{
+  //       console.log(error)
+  //     })
+  //   }
+  // }
+
   componentWillMount(){
     console.log("Pets page will mount")
     const user = JSON.parse(localStorage.getItem('loggedUser'))
     if(!user) this.props.history.push('/login')
     else {
-      getUserPets(user)
-      .then(user=>{
-        // console.log(user.pets)
-        this.setState({user})
-      }).catch(error=>{
-        console.log(error)
-      })
+      this.setState({user})
     }
   }
 
@@ -33,7 +42,7 @@ class PetsPage extends Component {
           {user.pets ?
           user.pets.map(pet => <PetCard key={pet._id} pet={pet}/>)
           :
-          <p>No hay mascotas</p>
+          <p>No pets found</p>
           }
         </div>
         <div className="d-flex jcc aic">

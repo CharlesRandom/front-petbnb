@@ -6,8 +6,8 @@ import { Icon, Avatar, Rate } from 'antd';
 const HostCard = ({host}) => {
   return (
     <div className="host-card">
-      <div className="host-avatar">
-        <Avatar size={64} src={host.photoURL} />
+      <div className="host-avatar" style={{backgroundImage:`url("${host.photoURL}")`}}>
+       
       </div>
       <div className="host-info">
         <h2>{host.name}</h2>

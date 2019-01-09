@@ -8,7 +8,7 @@ const PetCard = ({pet}) => {
     <div>
       <Card
         style={{ width: 300 }}
-        cover={<img alt="pet pic" src={pet.photoURL ? pet.photoURL : "https://thesocietypages.org/socimages/files/2009/05/nopic_192.gif"} />}
+        cover={<img style={{height:"50%"}} alt="pet pic" src={pet.photoURL ? pet.photoURL : "https://thesocietypages.org/socimages/files/2009/05/nopic_192.gif"} />}
         actions={[<Icon type="delete" />, <Icon type="edit" />]}
       >
         <Meta

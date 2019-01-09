@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-// const host = 'http://localhost:3000/auth'
-const host = 'https://ironpetbnb.herokuapp.com/auth'
+const host = 'http://localhost:3000/auth'
+// const host = 'https://ironpetbnb.herokuapp.com/auth'
 
 //signup
 export const signup = user => {
@@ -22,8 +22,8 @@ export const login = user => {
 
 
 //profile
-export const getProfile = () => {
-  return axios.get(host + '/profile',{withCredentials:true})
+export const getProfile = user => {
+  return axios.get(host + '/profile/' + user, {withCredentials:true})
     .then(r=>r.data)
     .catch(e=>e.response)
 }

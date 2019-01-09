@@ -3,7 +3,7 @@ import LoginForm from './LoginForm'
 // import HorizontalLogin from './HorizontalLogin'
 // import NormalLogin from './NormalLogin'
 import SignupForm from './SignupForm'
-import {signup, login} from '../../services/auth'
+import {signup, login, getProfile} from '../../services/auth'
 
 class AuthPage extends Component {
   state={
@@ -28,11 +28,15 @@ class AuthPage extends Component {
     e.preventDefault()
     login(user)
       .then(r=>{
-        if(r.name){
+        if(r._id){
           console.log('logueado', r)
-          localStorage.setItem('loggedUser',JSON.stringify(r))
-          this.props.history.push('/profile')
-          console.log('Go to profile')
+          getProfile(r._id)
+          .then(r=>{
+            console.log('populated user', r)
+            localStorage.setItem('loggedUser',JSON.stringify(r))
+            this.props.history.push('/profile')
+            console.log('Go to profile')
+          })
         }
         else {
           console.log('something went wrong, try log in again')
