@@ -1,48 +1,60 @@
 import React, { Component } from 'react'
+import { Spin, message } from 'antd';
 import LoginForm from './LoginForm'
-// import HorizontalLogin from './HorizontalLogin'
-// import NormalLogin from './NormalLogin'
 import SignupForm from './SignupForm'
 import {signup, login, getProfile} from '../../services/auth'
 
 class AuthPage extends Component {
   state={
-    user:{}
+    user:{},
+    loading:false
   }
+  
+  authError = e => {
+    message.error(e);
+    this.setState({loading:false})
+  };
 
   signup = e => {
+    this.setState({loading:true})
     const {user} = this.state
     e.preventDefault()
     signup(user)
       .then(r=>{
-        console.log(r)
-        this.props.history.push('/login')
+        if(r._id){
+          this.props.history.push('/login')
+        }
+        else {
+          console.log('Something went wrong, try sign up again')
+          this.authError('Something went wrong, try sign up again')
+        }
       }).catch(e=>{
-        console.log('something went wrong, try sign up again')
         console.log(e)
+        this.authError('Something went wrong, try sign up again')
       })
   }
 
   login = e => {
+    this.setState({loading:true})
     const {user} = this.state
     e.preventDefault()
     login(user)
       .then(r=>{
         if(r._id){
-          console.log('logueado', r)
+          console.log('logged')
           getProfile(r._id)
           .then(r=>{
-            console.log('populated user', r)
             localStorage.setItem('loggedUser',JSON.stringify(r))
             this.props.history.push('/profile')
-            console.log('Go to profile')
           })
         }
         else {
-          console.log('something went wrong, try log in again')
+          console.log('Something went wrong, please check credentials')
+          this.authError('Something went wrong, please check credentials')
         }
       }).catch(e=>{
         console.log(e)
+        this.authError('Something went wrong, please check credentials')
       })
   }
 
@@ -57,13 +69,22 @@ class AuthPage extends Component {
   render() {
       const {pathname} = this.props.location
       const { signup, login, handleText } = this
+      const {loading} = this.state
     return (
       <div className="auth">
         <div>
           {pathname==='/login'?
-          <LoginForm login={login} handleText={handleText}/>
+          <div>
+            {!loading ? <LoginForm login={login} handleText={handleText}/> : <Spin tip="Loading...">
+            <LoginForm login={login} handleText={handleText}/>
+            </Spin>}
+          </div>
           :
-          <SignupForm signup={signup} handleText={handleText}/>
+          <div>
+            {!loading ? <SignupForm signup={signup} handleText={handleText}/> : <Spin tip="Loading...">
+            <SignupForm signup={signup} handleText={handleText}/>
+            </Spin>}
+          </div>
           }
         </div>
       </div>

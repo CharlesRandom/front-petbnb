@@ -10,8 +10,9 @@ export default class Home extends Component {
           <Navbar />
           <div className="search-container">
             <div>
-              <h1>Dueños felices, mascotas felices</h1>
-              <p>Hospeda tu mascota como lo cuidarías tu</p>
+              <h1>Happy pets, happy owners</h1>
+              <p>Find a loving pet sitter who will take care of your pet <br/>
+                just like you would do it</p>
               <HomeSearch />
             </div>
            

@@ -170,6 +170,11 @@ code {
   margin: 0 20px;
 }
 
+.nav a {
+  text-decoration: none;
+  color: white;
+}
+
 
 .search-container {
   width: 100%;
@@ -198,6 +203,7 @@ code {
   background-color: white;
   border-radius: 10px;
   width: 100%;
+  max-width: 600px;
   height: auto;
   padding: 3%;
 }
@@ -209,7 +215,6 @@ code {
 }
 
 .box_profile{
-
   text-align: center;
 }
 

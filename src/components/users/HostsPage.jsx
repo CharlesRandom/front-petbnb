@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import {getHosts} from '../../services/hosts'
 import HostCard from './HostCard';
-import SearchBox from '../reservations/SearchBox'
 import MapContainer from '../reservations/MapContainer';
+import HomeSearch from '../home/HomeSearch';
 
 
 class HostsPage extends Component {
@@ -32,11 +32,11 @@ class HostsPage extends Component {
     return (
       <div className="hosts-page-container">
         <div className="d-flex jcc aic"><h2>Hosts</h2></div>
-        <div className="d-flex jcc aic"><SearchBox /></div>
+        <div className="d-flex jcc aic"><HomeSearch /></div>
         <div className="map-hosts-container">
           <div className="hosts-container">
             {hosts.length > 0 ?
-            hosts.map(host => <HostCard key={host._id} host={host}/>)
+            hosts.map(host => <a key={host._id} href="/host"><HostCard key={host._id} host={host}/></a>)
             :
             <p>No hay hosts</p>
             }

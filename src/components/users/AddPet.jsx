@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {addPet, uploadFile} from '../../services/pets'
 
 import PetForm from './PetForm'
+import ProfileNavbar from './ProfileNavbar';
 
 
 class AddPet extends Component {
@@ -73,6 +74,7 @@ class AddPet extends Component {
       const { addPet, handleText, handleSelectChange, handleImage, onChange } = this
     return (
       <div>
+        <ProfileNavbar />
         <PetForm addPet={addPet} 
         handleText={handleText}
         handleSelectChange={handleSelectChange}

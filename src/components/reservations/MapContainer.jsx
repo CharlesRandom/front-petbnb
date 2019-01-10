@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 
 const mapStyles = {
-
-  height: '70%'
+  height: '80%',
+  width: '300px',
+  flexGrow: 2,
+  margin: '20px',
+  padding: '10px 10px'
 };
 
 export class MapContainer extends Component {
@@ -56,7 +59,7 @@ export class MapContainer extends Component {
             <div>
               <h4>{this.state.selectedPlace.title}</h4>
               <h5>${this.state.selectedPlace.price} per night</h5>
-              <img style={{width:"200px"}} src={this.state.selectedPlace.photo} alt="profile pic"/>
+              <a href="/host"><img style={{width:"200px"}} src={this.state.selectedPlace.photo} alt="profile pic"/></a>
             </div>
           </InfoWindow>
         </Map>
