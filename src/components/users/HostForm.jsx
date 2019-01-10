@@ -9,6 +9,7 @@ const { TextArea } = Input;
 const HostForm = ({addHost, handleText, handleImage, onChange}) => {
   return (
     <div className="host-form">
+      <h3>Profile</h3>
       <Form layout="vertical" method="POST" onSubmit={addHost}>
         <FormItem>
           {/* <input onChange={handleImage} type="file" name="photoURL"/> */}

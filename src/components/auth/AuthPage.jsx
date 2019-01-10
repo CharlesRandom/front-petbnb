@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Spin, message } from 'antd';
 import LoginForm from './LoginForm'
 import SignupForm from './SignupForm'
+import Navbar from '../home/Navbar';
 import {signup, login, getProfile} from '../../services/auth'
 
 class AuthPage extends Component {
@@ -71,21 +72,44 @@ class AuthPage extends Component {
       const { signup, login, handleText } = this
       const {loading} = this.state
     return (
-      <div className="auth">
+      // <div className="auth">
+      //   <div>
+      //     {pathname==='/login'?
+      //     <div>
+      //       {!loading ? <LoginForm login={login} handleText={handleText}/> : <Spin tip="Loading...">
+      //       <LoginForm login={login} handleText={handleText}/>
+      //       </Spin>}
+      //     </div>
+      //     :
+      //     <div>
+      //       {!loading ? <SignupForm signup={signup} handleText={handleText}/> : <Spin tip="Loading...">
+      //       <SignupForm signup={signup} handleText={handleText}/>
+      //       </Spin>}
+      //     </div>
+      //     }
+      //   </div>
+      // </div>
+      <div className="home">
         <div>
-          {pathname==='/login'?
-          <div>
-            {!loading ? <LoginForm login={login} handleText={handleText}/> : <Spin tip="Loading...">
-            <LoginForm login={login} handleText={handleText}/>
-            </Spin>}
+          <Navbar />
+          <div className="search-container">
+            <div>
+              {pathname==='/login'?
+              <div>
+                {!loading ? <LoginForm login={login} handleText={handleText}/> : <Spin tip="Loading...">
+                <LoginForm login={login} handleText={handleText}/>
+                </Spin>}
+              </div>
+              :
+              <div>
+                {!loading ? <SignupForm signup={signup} handleText={handleText}/> : <Spin tip="Loading...">
+                <SignupForm signup={signup} handleText={handleText}/>
+                </Spin>}
+              </div>
+              }
+            </div>
+          
           </div>
-          :
-          <div>
-            {!loading ? <SignupForm signup={signup} handleText={handleText}/> : <Spin tip="Loading...">
-            <SignupForm signup={signup} handleText={handleText}/>
-            </Spin>}
-          </div>
-          }
         </div>
       </div>
     )

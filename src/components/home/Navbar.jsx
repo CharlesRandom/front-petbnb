@@ -6,7 +6,7 @@ export default class Navbar extends Component {
   render() {
     return (
       <div className="nav">
-        <img src={logo} alt="logo pic"/>
+        <Link to='/'><img src={logo} alt="logo pic"/></Link>
         <div>
           <Link to='/hosts'><p>Find a Host</p></Link>
           <Link to='/host'><p>Become a Host</p></Link>

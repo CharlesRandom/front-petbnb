@@ -3,9 +3,10 @@ import { Form, Icon, Input, Button } from 'antd';
 
 const FormItem = Form.Item;
 
-const AddressForm = ({addAddress, handleText}) => {
+const AddressForm = ({addAddress, handleText, goBack}) => {
   return (
     <div className="address-form">
+      <h3>Address</h3>
       <Form layout="vertical" method="POST" onSubmit={addAddress}>
         <FormItem>
           <Input name="street" onChange={handleText} prefix={<Icon type="car" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Street" />
@@ -26,6 +27,7 @@ const AddressForm = ({addAddress, handleText}) => {
           <Input name="zipcode" onChange={handleText} prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Zipcode" />
         </FormItem>
         <FormItem>
+          <Button style={{marginRight:"20px"}} onClick={goBack}>Back</Button>
           <Button type="primary" htmlType="submit">Next</Button>
         </FormItem>
       </Form>

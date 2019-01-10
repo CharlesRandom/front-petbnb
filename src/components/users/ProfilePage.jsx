@@ -18,7 +18,7 @@ class ProfilePage extends Component {
 
   componentWillMount(){
     const user = JSON.parse(localStorage.getItem('loggedUser'))
-    if(!user) this.props.history.push('/login')
+    if(!user.name) this.props.history.push('/login')
     else this.setState({user})
   }
 
@@ -27,7 +27,7 @@ class ProfilePage extends Component {
     return (
       <div  className="box_profile" style={{height:"100vh",
       overflowY:"scroll",
-      backgroundColor:"#fafafa"}}>
+      backgroundColor:"#DDFCF0"}}>
         <ProfileNavbar />
         <h1 style={{marginTop:"80px"}}>Hi {user.name},</h1>
         <h2>Welcome!</h2>
