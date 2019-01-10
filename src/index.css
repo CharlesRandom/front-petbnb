@@ -64,6 +64,7 @@ code {
 }
 
 .host-card {
+  background-color: white;
   margin: 10px;
   padding: 20px 30px;
   display: flex;

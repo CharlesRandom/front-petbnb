@@ -27,7 +27,7 @@ class ProfilePage extends Component {
     return (
       <div  className="box_profile" style={{height:"100vh",
       overflowY:"scroll",
-      backgroundColor:"#DDFCF0"}}>
+      backgroundColor:"#F6FBF9"}}>
         <ProfileNavbar />
         <h1 style={{marginTop:"80px"}}>Hi {user.name},</h1>
         <h2>Welcome!</h2>
