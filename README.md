@@ -1,4 +1,4 @@
-# Paetbnb React with google Maps API
+# Petbnb React with google Maps API
 
 This app integrates React with the Google Maps API
 
