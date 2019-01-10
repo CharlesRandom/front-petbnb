@@ -72,23 +72,6 @@ class AuthPage extends Component {
       const { signup, login, handleText } = this
       const {loading} = this.state
     return (
-      // <div className="auth">
-      //   <div>
-      //     {pathname==='/login'?
-      //     <div>
-      //       {!loading ? <LoginForm login={login} handleText={handleText}/> : <Spin tip="Loading...">
-      //       <LoginForm login={login} handleText={handleText}/>
-      //       </Spin>}
-      //     </div>
-      //     :
-      //     <div>
-      //       {!loading ? <SignupForm signup={signup} handleText={handleText}/> : <Spin tip="Loading...">
-      //       <SignupForm signup={signup} handleText={handleText}/>
-      //       </Spin>}
-      //     </div>
-      //     }
-      //   </div>
-      // </div>
       <div className="home">
         <div>
           <Navbar />
@@ -107,8 +90,7 @@ class AuthPage extends Component {
                 </Spin>}
               </div>
               }
-            </div>
-          
+            </div>          
           </div>
         </div>
       </div>

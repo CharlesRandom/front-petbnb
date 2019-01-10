@@ -16,9 +16,9 @@ export default class HomeSearch extends Component {
         <div className="search-card">
           <h3>Petbnb</h3>
           <div className="search-buttons">
-            <Button style={{width:"170px"}} icon="crown">Alojamiento</Button>
-            <Button style={{width:"170px"}} disabled icon="fire">Guardería</Button>
-            <Button style={{width:"170px"}} disabled icon="rocket">Paseo</Button>
+            <Button style={{width:"170px"}} icon="crown">Boarding</Button>
+            <Button style={{width:"170px"}} disabled icon="fire">Sitting</Button>
+            <Button style={{width:"170px"}} disabled icon="rocket">Walking</Button>
           </div>
           <div className="search-buttons">
             <Search
@@ -32,7 +32,7 @@ export default class HomeSearch extends Component {
             />
           </div>
           <div style={{textAlign:"center"}}>
-            <Button style={{backgroundColor:"#59a4ad", border:"none", color:"white"}}>Buscar host</Button>
+            <Button style={{backgroundColor:"#59a4ad", border:"none", color:"white"}}>Find host</Button>
           </div>
         </div>
     

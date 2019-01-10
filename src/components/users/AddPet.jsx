@@ -73,13 +73,19 @@ class AddPet extends Component {
   render() {
       const { addPet, handleText, handleSelectChange, handleImage, onChange } = this
     return (
-      <div>
-        <ProfileNavbar />
-        <PetForm addPet={addPet} 
-        handleText={handleText}
-        handleSelectChange={handleSelectChange}
-        handleImage={handleImage}
-        onChange={onChange}/>
+      <div className="home">
+        <div>
+          <ProfileNavbar />
+          <div className="search-container">
+            <div>
+              <PetForm addPet={addPet} 
+                handleText={handleText}
+                handleSelectChange={handleSelectChange}
+                handleImage={handleImage}
+                onChange={onChange}/>
+            </div>          
+          </div>
+        </div>
       </div>
     )
   }
