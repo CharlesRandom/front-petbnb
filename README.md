@@ -1,3 +1,50 @@
+# Paetbnb React with google Maps API
+
+This app integrates React with the Google Maps API
+
+## Getting Started
+
+### Prerequisites
+
+The following packages must be installed before running the app:
+
+- [React](https://www.npmjs.com/package/react)
+- [google-maps-react](https://www.npmjs.com/package/google-maps-react)
+
+### Installation
+
+After cloning the [repository](https://github.com/CharlesRandom/front-petbnb):
+
+```
+git clone https://github.com/CharlesRandom/front-petbnb
+```
+
+- Go to the root of the directory by running:
+
+```
+cd front-petbnb
+```
+
+- checkout to master branch by running:
+
+```
+git checkout master
+```
+
+- Install all project dependencies by running:
+
+```
+yarn install
+```
+
+### Start The App
+
+- Start the server by running:
+
+```
+yarn start
+```
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
