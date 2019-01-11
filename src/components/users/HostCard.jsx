@@ -1,7 +1,5 @@
 import React from 'react'
-import { Icon, Avatar, Rate } from 'antd';
-
-
+import { Icon, Rate } from 'antd';
 
 const HostCard = ({host}) => {
   return (

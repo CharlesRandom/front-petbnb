@@ -36,7 +36,7 @@ class HostsPage extends Component {
         <div className="map-hosts-container">
           <div className="hosts-container">
             {hosts.length > 0 ?
-            hosts.map(host => <a key={host._id} href="/host"><HostCard key={host._id} host={host}/></a>)
+            hosts.map(host => <a key={host._id} href={`/host/${host._id}`}><HostCard key={host._id} host={host}/></a>)
             :
             <p>No hay hosts</p>
             }
